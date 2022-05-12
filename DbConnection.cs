@@ -2,14 +2,34 @@
 
 namespace PolymorphismExercise
 {
-    public class DbConnection
+    public abstract class DbConnection
     {
-        public string ConnectionString { get; set; }
+        private string _connectionString;
         public TimeSpan Timeout { get; set; }
 
         public DbConnection(string connectionString)
         {
-            ConnectionString = connectionString;
+            _connectionString = connectionString;
         }
+
+        public string ConnectionString
+        {
+            get { return _connectionString; }
+            set
+            {
+                if (!String.IsNullOrWhiteSpace(value))
+                {
+                    _connectionString = value;
+                }
+                else
+                {
+                    throw new ArgumentNullException("Cannot be null or empty");
+                }
+            }
+        }
+
+        public abstract void OpenConnection();
+
+        public abstract void CloseConnection();
     }
 }
