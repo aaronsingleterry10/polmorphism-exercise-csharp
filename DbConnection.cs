@@ -9,7 +9,15 @@ namespace PolymorphismExercise
 
         public DbConnection(string connectionString)
         {
-            _connectionString = connectionString;
+            if (!String.IsNullOrWhiteSpace(connectionString))
+            {
+                _connectionString = connectionString;
+            }
+            else
+            {
+                throw new ArgumentNullException("Cannot be null or empty");
+            }
+            
         }
 
         public string ConnectionString

@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 
 namespace PolymorphismExercise
 {
-
     internal class Program
     {
         static void Main(string[] args)
@@ -45,6 +44,12 @@ namespace PolymorphismExercise
                 real-world, SQL Server provides an API for opening or closing a connection to a database. But
                 for this exercise, we don’t need to worry about it. 
             */
+
+            var oracleConnection = new OracleConnection(null);
+            oracleConnection.OpenConnection();
+            oracleConnection.CloseConnection();
+            var sqlConnection = new SqlConnection("sql-connection");
+            System.Console.WriteLine(sqlConnection.ConnectionString);
         }
     }
 }

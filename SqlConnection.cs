@@ -10,12 +10,12 @@ namespace PolymorphismExercise
 
         public override void CloseConnection()
         {
-            Console.WriteLine("Connection closed.");
+            Console.WriteLine("Sql connection closed.");
         }
 
         public override void OpenConnection()
         {
-            Console.WriteLine("Connection opened.");
+            Console.WriteLine("Sql connection opened.");
         }
     }
 }
