@@ -45,11 +45,14 @@ namespace PolymorphismExercise
                 for this exercise, we don’t need to worry about it. 
             */
 
-            var oracleConnection = new OracleConnection(null);
-            oracleConnection.OpenConnection();
-            oracleConnection.CloseConnection();
+            var oracleConnection = new OracleConnection("blank");
+            //oracleConnection.OpenConnection();
+            //oracleConnection.CloseConnection();
             var sqlConnection = new SqlConnection("sql-connection");
-            System.Console.WriteLine(sqlConnection.ConnectionString);
+            //System.Console.WriteLine(sqlConnection.ConnectionString);
+
+            var sqlDbCommand = new DbCommand("sql db instructions", sqlConnection);
+            sqlDbCommand.Execute();
         }
     }
 }
